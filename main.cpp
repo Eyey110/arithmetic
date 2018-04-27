@@ -1,13 +1,14 @@
 #include <iostream>
 #include "array_utils.h"
 #include "log_utils.h"
-#include "merge_sort.h"
 #include "search.h"
 #include "leetcode_array.h"
 #include <vector>
+#include "sort.h"
+#include "performance_utils.h"
 
 
-const auto array_length = 20;
+const auto array_length = 10000;
 const auto lr = 0;
 const auto rr = array_length + 100;
 
@@ -38,11 +39,20 @@ int main() {
 //    assert(result == 2);
 //    log_vector(vec);
 
-    int arr[] = {0,0,1,1,1,1,2,3,3};
-    std::vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
-    int index = leetcode_array::removeDuplicates80(vec);
-    log_vector(vec,index);
+//    int arr[] = {0,0,1,1,1,1,2,3,3};
 
+
+
+    int *randomArr = au::generateRandomArray(array_length, lr, rr);
+    int a = sizeof(randomArr);
+//    std::vector<int> vec(randomArr, randomArr + sizeof(randomArr) / sizeof(int));
+//    int index = leetcode_array::removeDuplicates80(vec);
+//    log_vector(vec, index);
+//    sort::selection_sort::selection_sort(randomArr, array_length);
+    performance_utils::testSort("selection_sort", sort::selection_sort, randomArr, array_length);
+    performance_utils::testSort("insert_sort", sort::insert_sort, randomArr, array_length);
+    performance_utils::testSort("bubble_sort", sort::bubble_sort, randomArr, array_length);
+    performance_utils::testSort("merge_sort", sort::merge_sort, randomArr, array_length);
 //    int result = leetcode::removeElement27(vec,2);
 //    assert(result == 5);
 
