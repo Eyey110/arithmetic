@@ -6,9 +6,10 @@
 #include <vector>
 #include "sort.h"
 #include "performance_utils.h"
+#include "MaxHeap.h"
 
 
-const auto array_length = 10000;
+const auto array_length = 100;
 const auto lr = 0;
 const auto rr = array_length + 100;
 
@@ -44,17 +45,27 @@ int main() {
 
 
     int *randomArr = au::generateRandomArray(array_length, lr, rr);
-    int a = sizeof(randomArr);
+//    int a = sizeof(randomArr);
 //    std::vector<int> vec(randomArr, randomArr + sizeof(randomArr) / sizeof(int));
 //    int index = leetcode_array::removeDuplicates80(vec);
 //    log_vector(vec, index);
 //    sort::selection_sort::selection_sort(randomArr, array_length);
-    performance_utils::testSort("selection_sort", sort::selection_sort, randomArr, array_length);
-    performance_utils::testSort("insert_sort", sort::insert_sort, randomArr, array_length);
-    performance_utils::testSort("bubble_sort", sort::bubble_sort, randomArr, array_length);
-    performance_utils::testSort("merge_sort", sort::merge_sort, randomArr, array_length);
+//    performance_utils::testSort("selection_sort", sort::selection_sort, randomArr, array_length);
+//    performance_utils::testSort("insert_sort", sort::insert_sort, randomArr, array_length);
+//    performance_utils::testSort("bubble_sort", sort::bubble_sort, randomArr, array_length);
+//    performance_utils::testSort("merge_sort", sort::merge_sort, randomArr, array_length);
+
+//    performance_utils::testSort("quick_sort", sort::quickSort, randomArr, array_length);
 //    int result = leetcode::removeElement27(vec,2);
 //    assert(result == 5);
+    MaxHeap<int> maxHeap = MaxHeap<int>(randomArr, array_length);
 
+//    srand(time(NULL));
+//    for (int i = 0; i < array_length; i++) {
+//        maxHeap.insert(rand() % (rr - lr + 1) + lr);
+//    }
+    for (int i = 0; i < array_length; i++) {
+        std::cout << maxHeap.extractMax() << ",";
+    }
     return 0;
 }

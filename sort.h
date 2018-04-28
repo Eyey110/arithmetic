@@ -90,6 +90,39 @@ namespace sort {
             }
         }
     }
+
+
+    template<typename T>
+    int __partition(T arr[], int l, int r) {
+        T v = arr[l];
+        int j = l;
+        for (int i = l; i <= r; i++) {
+            if (arr[i] < v) {
+                au::swap(arr[++j], arr[i]);
+            }
+        }
+        au::swap(arr[j], arr[l]);
+        return j;
+    }
+
+
+    template<typename T>
+    void __quickSort(T arr[], int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int p = __partition(arr, l, r);
+        __quickSort(arr, l, p-1);
+        __quickSort(arr, p + 1, r);
+
+    }
+
+
+    template<typename T>
+    void quickSort(T arr[], int n) {
+        __quickSort(arr, 0, n);
+    }
+
 }
 
 #endif //ARITHMETIC_SORT_H
