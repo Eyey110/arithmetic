@@ -55,7 +55,7 @@ namespace leetcode_dp {
     int minPathSum64(vector<vector<int>> &grid) {
         auto width = grid.size();
         auto height = grid[0].size();
-        int *pathSum = new int[width*height];
+        int *pathSum = new int[width * height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (i == 0 && j == 0) {
@@ -74,6 +74,23 @@ namespace leetcode_dp {
             }
         }
         return pathSum[(height - 1) * width + width - 1];
+    }
+
+
+//    给定正整数 n，找到若干个完全平方数(比如 1, 4, 9, 16, ...) 使得他们的和等于 n。你需要让平方数的个数最少。
+//    比如 n = 12，返回 3 ，因为 12 = 4 + 4 + 4 ； 给定 n = 13，返回 2 ，因为 13 = 4 + 9。
+//
+    int numSquares(int n) {
+        int *nums = new int[n + 1];
+        nums[1] = 1;
+        nums[2] = 2;
+
+        for (int i = 3; i < n; i++) {
+            for (int j = 1; j < i / 2; i++) {
+                nums[j] = min(nums[j], nums[i - j] + nums[j]);
+            }
+        }
+        return nums[n];
     }
 };
 

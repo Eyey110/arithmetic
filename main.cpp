@@ -45,7 +45,7 @@ int main() {
 
 
 
-    int *randomArr = au::generateRandomArray(array_length, lr, rr);
+//    int *randomArr = au::generateRandomArray(array_length, lr, rr);
 //    int a = sizeof(randomArr);
 //    std::vector<int> vec(randomArr, randomArr + sizeof(randomArr) / sizeof(int));
 //    int index = leetcode_array::removeDuplicates80(vec);
@@ -64,26 +64,26 @@ int main() {
     //    [1,3,1],
     //    [1,5,1],
     //    [4,2,1]
-    vector<vector<int>> grid;
-    vector<int> v1;
-    v1.push_back(1);
-    v1.push_back(3);
-    v1.push_back(1);
-    grid.push_back(v1);
-    vector<int> v2;
-    v2.push_back(1);
-    v2.push_back(5);
-    v2.push_back(1);
-    grid.push_back(v2);
-    vector<int> v3;
-    v3.push_back(4);
-    v3.push_back(2);
-    v3.push_back(1);
-    grid.push_back(v3);
+//    vector<vector<int>> grid;
+//    vector<int> v1;
+//    v1.push_back(1);
+//    v1.push_back(3);
+//    v1.push_back(1);
+//    grid.push_back(v1);
+//    vector<int> v2;
+//    v2.push_back(1);
+//    v2.push_back(5);
+//    v2.push_back(1);
+//    grid.push_back(v2);
+//    vector<int> v3;
+//    v3.push_back(4);
+//    v3.push_back(2);
+//    v3.push_back(1);
+//    grid.push_back(v3);
+//
+//   int res = leetcode_dp::minPathSum64(grid);
 
-   int res = leetcode_dp::minPathSum64(grid);
-
-    std::cout<<res<<endl;
+    std::cout<<leetcode_dp::numSquares(13)<<endl;
 //    srand(time(NULL));
 //    for (int i = 0; i < array_length; i++) {
 //        maxHeap.insert(rand() % (rr - lr + 1) + lr);
