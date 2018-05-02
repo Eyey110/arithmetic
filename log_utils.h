@@ -12,7 +12,7 @@
 using namespace std;
 
 
-namespace log {
+namespace log_utils {
 
 
     template<typename T>

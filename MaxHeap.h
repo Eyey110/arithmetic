@@ -6,6 +6,7 @@
 #define ARITHMETIC_MAXHEAP_H
 
 #include "array_utils.h"
+#include <cmath>
 
 using namespace std;
 
@@ -94,6 +95,30 @@ public:
         assert(!isEmpty());
         return data[0];
     };
+
+
+    //打印一个最大堆
+    //TODO
+    void print() {
+        assert(typeid(Item) == typeid(int));
+        int height = static_cast<int>(std::log2(count));
+        int rowNum = height * 2 + 1;
+        //第n行有n项
+        //第一行有1项
+        //第二行有2项
+        //第三行有3项
+        int j = 1;
+        for (int i = 1; i <= height + 1; i++) {
+            int m = static_cast<int>(pow(2, i - 1));
+            for (int x = 0; x < m && j <= count; x++) {
+                cout << data[j++];
+                cout << " ";
+            }
+            cout << endl;
+        }
+    }
+
+
 };
 
 

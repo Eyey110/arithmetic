@@ -84,7 +84,7 @@ namespace leetcode_array {
                 result++;
             }
         }
-        log::log_vector(nums);
+        log_utils::log_vector(nums);
         return result;
     }
 
@@ -109,8 +109,8 @@ namespace leetcode_array {
         for (int i = 1; i < nums.size(); i++) {
             if (nums[i] != nums[i - 1]) {
                 nums[index++] = nums[i];
-                log::log_vector(nums);
-                log::log_line_break();
+                log_utils::log_vector(nums);
+                log_utils::log_line_break();
             }
 
 
@@ -138,13 +138,13 @@ namespace leetcode_array {
         for (int i = 1; i < nums.size(); i++) {
             if (nums[i] != nums[i - 1]) {
                 nums[index++] = nums[i];
-                log::log_vector(nums);
-                log::log_line_break();
+                log_utils::log_vector(nums);
+                log_utils::log_line_break();
                 count++;
             } else if (count >= 1) {
                 nums[index++] = nums[i];
-                log::log_vector(nums);
-                log::log_line_break();
+                log_utils::log_vector(nums);
+                log_utils::log_line_break();
                 count = 0;
             }
 

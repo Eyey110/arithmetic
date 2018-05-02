@@ -7,21 +7,21 @@
 #include "sort.h"
 #include "performance_utils.h"
 #include "MaxHeap.h"
+#include <math.h>
 
 
-const auto array_length = 100;
+const auto array_length = 20;
 const auto lr = 0;
 const auto rr = array_length + 100;
 
-using namespace log;
 
 int main() {
 
 //    int *randomArr = au::generateRandomArray(array_length, lr, rr);
 //    int *sortArr = au::generateSortArray(array_length, 10);
 
-//    log::log_int_array(sortArr, 10);
-//    log::log_line_break();
+//    log_utils::log_int_array(sortArr, 10);
+//    log_utils::log_line_break();
 //    assert(0==search::binarySearch(sortArr, 10, array_length));
 //    assert(9==search::binarySearch(sortArr, 19, array_length));
 //    assert(-1==search::binarySearch(sortArr, 0, array_length));
@@ -59,13 +59,17 @@ int main() {
 //    int result = leetcode::removeElement27(vec,2);
 //    assert(result == 5);
     MaxHeap<int> maxHeap = MaxHeap<int>(randomArr, array_length);
+    maxHeap.print();
 
 //    srand(time(NULL));
 //    for (int i = 0; i < array_length; i++) {
 //        maxHeap.insert(rand() % (rr - lr + 1) + lr);
 //    }
-    for (int i = 0; i < array_length; i++) {
-        std::cout << maxHeap.extractMax() << ",";
-    }
+//    int height = static_cast<int>(log2(8));
+//    cout << height << endl;
+
+//    for (int i = 0; i < array_length; i++) {
+//        std::cout << maxHeap.extractMax() << ",";
+//    }
     return 0;
 }
