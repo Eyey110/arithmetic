@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -82,16 +83,35 @@ namespace leetcode_dp {
 //
     int numSquares(int n) {
         int *nums = new int[n + 1];
+        memset(nums, INT_MAX, sizeof(nums));
         nums[1] = 1;
         nums[2] = 2;
-
-        for (int i = 3; i < n; i++) {
-            for (int j = 1; j < i / 2; i++) {
-                nums[j] = min(nums[j], nums[i - j] + nums[j]);
-            }
+        for (int i = 3; i <= n; i++) {
+            nums[i] = i;
+            int sqr = (int) sqrt(i);
+            if (sqr * sqr == i) nums[i] = 1;
+            else
+                for (int j = 1; j <= i / 2; j++) {
+                    nums[i] = min(nums[i], nums[i - j] + nums[j]);
+                }
         }
         return nums[n];
+        /**-------上面的算法超时了O(n^2)------**/
     }
+
+    //一条包含字母 A-Z 的消息通过以下方式进行了编码：
+    //'A' -> 1
+    //'B' -> 2
+    //...
+    //'Z' -> 26
+    //给定一个只包含数字的非空字符串，请计算解码方法的总数。
+    //示例 1:
+    //入: "12"
+    //输出: 2
+    //解释: 它可以解码为 "AB"（1 2）或者 "L"（12）。
+//    int numDecodings(string s) {
+//
+//    }
 };
 
 

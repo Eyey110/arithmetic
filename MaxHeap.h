@@ -28,16 +28,16 @@ private:
         }
     };
 
-    void shiftDown(int k) {
-        int i = 1;
-        while (2 * k <= count) {
-            int j = 2 * k;
-            if (j + 1 <= count && data[j + 1] > data[j])
-                j++;
-            if (data[k] >= data[j]) break;
-            swap(data[k], data[j]);
-            k = j;
-        }
+        void shiftDown(int k) {
+            int i = 1;
+            while (2 * k <= count) {
+                int j = 2 * k;
+                if (j + 1 <= count && data[j + 1] > data[j])
+                    j++;
+                if (data[k] >= data[j]) break;
+                swap(data[k], data[j]);
+                k = j;
+            }
     };
 
 public:

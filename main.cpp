@@ -82,8 +82,18 @@ int main() {
 //    grid.push_back(v3);
 //
 //   int res = leetcode_dp::minPathSum64(grid);
-
-    std::cout<<leetcode_dp::numSquares(13)<<endl;
+//    clock_t startTime = clock();
+//    int res = leetcode_dp::numSquares(1535);
+//    std::cout << res << endl;
+//    clock_t endTime = clock();
+//    cout << " : " << double(endTime - startTime) / CLOCKS_PER_SEC << " s" << endl;
+//    auto memo = new int[5];
+//    for (int i = 1; i < 5; i++) {
+//        memo[i] = 1;
+//    }
+//    for (int i = 1; i < 5; i++) {
+//        std::cout << leetcode_dp::numDecodings("12") << endl;
+//    }
 //    srand(time(NULL));
 //    for (int i = 0; i < array_length; i++) {
 //        maxHeap.insert(rand() % (rr - lr + 1) + lr);
