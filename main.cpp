@@ -9,7 +9,9 @@
 #include "MaxHeap.h"
 #include "leetcode_dp.h"
 #include <math.h>
-
+#include "ReadGraph.h"
+#include "Graph.h"
+#include<unistd.h>
 
 const auto array_length = 20;
 const auto lr = 0;
@@ -103,5 +105,32 @@ int main() {
 //    for (int i = 0; i < array_length; i++) {
 //        std::cout << maxHeap.extractMax() << ",";
 //    }
+
+
+//    char   buffer[1000];
+//    getcwd(buffer, 1000);
+//    printf( "The   current   directory   is:   %s ",   buffer);
+    string filename = "../testG1.txt";
+    string filename2 = "../testG2.txt";
+    SparseGraph g1(13, false);
+    ReadGraph readGraph1(g1, filename);
+    DenseGraph g2(6, false);
+    ReadGraph readGraph2(g2, filename2);
+
+    g1.show();
+    cout << "--------------------" << endl;
+    g2.show();
+    cout << "--------------------" << endl;
+    Component<SparseGraph> component1(g1);
+    cout << component1.count() << endl;
+    Component<DenseGraph> component2(g2);
+    cout << component2.count() << endl;
+    cout << "--------------------" << endl;
+
+    SparseGraph g3(7, false);
+    ReadGraph readGraph3(g3, "../testG3.txt");
+    Path<SparseGraph> path(g3, 0);
+    path.showPath(6);
+
     return 0;
 }
