@@ -12,6 +12,7 @@
 #include "ReadGraph.h"
 #include "Graph.h"
 #include<unistd.h>
+#include "WeightedGraph.h"
 
 const auto array_length = 20;
 const auto lr = 0;
@@ -110,27 +111,35 @@ int main() {
 //    char   buffer[1000];
 //    getcwd(buffer, 1000);
 //    printf( "The   current   directory   is:   %s ",   buffer);
-    string filename = "../testG1.txt";
-    string filename2 = "../testG2.txt";
-    SparseGraph g1(13, false);
-    ReadGraph readGraph1(g1, filename);
-    DenseGraph g2(6, false);
-    ReadGraph readGraph2(g2, filename2);
+    string filename = "../testWG1.txt";
+//    string filename2 = "../testG2.txt";
+//    SparseGraph g1(13, false);
+//    ReadGraph readGraph1(g1, filename);
+//    DenseGraph g2(6, false);
+//    ReadGraph readGraph2(g2, filename2);
+//
+//    g1.show();
+//    cout << "--------------------" << endl;
+//    g2.show();
+//    cout << "--------------------" << endl;
+//    Component<SparseGraph> component1(g1);
+//    cout << component1.count() << endl;
+//    Component<DenseGraph> component2(g2);
+//    cout << component2.count() << endl;
+//    cout << "--------------------" << endl;
+//
+//    SparseGraph g3(7, false);
+//    ReadGraph readGraph3(g3, "../testG3.txt");
+//    Path<SparseGraph> path(g3, 0);
+//    path.showPath(6);
+//    WeightGraph::DenseGraph<double> denseGraph(8, false);
+//    WeightGraph::readGraph<WeightGraph::DenseGraph<double>, double>(denseGraph, filename);
+//    denseGraph.show();
 
-    g1.show();
-    cout << "--------------------" << endl;
-    g2.show();
-    cout << "--------------------" << endl;
-    Component<SparseGraph> component1(g1);
-    cout << component1.count() << endl;
-    Component<DenseGraph> component2(g2);
-    cout << component2.count() << endl;
-    cout << "--------------------" << endl;
 
-    SparseGraph g3(7, false);
-    ReadGraph readGraph3(g3, "../testG3.txt");
-    Path<SparseGraph> path(g3, 0);
-    path.showPath(6);
+    WeightGraph::SparseGraph<double> sparseGraph(8, true);
+    WeightGraph::readGraph<WeightGraph::SparseGraph<double>,double>(sparseGraph,filename);
+    sparseGraph.show();
 
     return 0;
 }
