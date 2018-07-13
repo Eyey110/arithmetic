@@ -13,6 +13,7 @@
 #include "Graph.h"
 #include<unistd.h>
 #include "WeightedGraph.h"
+#include "LazyPrimMST.h"
 
 const auto array_length = 20;
 const auto lr = 0;
@@ -137,9 +138,15 @@ int main() {
 //    denseGraph.show();
 
 
-    WeightGraph::SparseGraph<double> sparseGraph(8, true);
-    WeightGraph::readGraph<WeightGraph::SparseGraph<double>,double>(sparseGraph,filename);
+    WeightGraph::SparseGraph<double> sparseGraph(8, false);
+    WeightGraph::readGraph<WeightGraph::SparseGraph<double>, double>(sparseGraph, filename);
     sparseGraph.show();
+    cout << "--------------------" << endl;
+    LazyPrimMST<WeightGraph::SparseGraph<double>,double> lazyPrimMST(sparseGraph);
+    vector<Edge<double>> mst = lazyPrimMST.mstEdges();
+    for (const auto &i : mst)
+        cout<< i <<endl;
+    cout<<"Weight = " <<lazyPrimMST.result()<<endl;
 
     return 0;
 }
